@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-espresso: 58 38 24;      /* #3A2618 */
+    --brand-cream: 249 246 240;      /* #F9F6F0 */
+    --brand-beige: 239 235 226;      /* #EFEBE2 */
+    --brand-offwhite: 250 249 246;   /* #FAF9F6 */
+    --brand-green: 90 107 83;        /* #5A6B53 */
+    --brand-terracotta: 193 119 91;  /* #C1775B */
+  }
+
+  .dark {
+    /* Warm dark aesthetic */
+    --brand-espresso: 249 246 240;   /* Text becomes light cream */
+    --brand-cream: 34 26 21;         /* Background becomes dark warm grey/espresso */
+    --brand-beige: 53 43 36;         /* Borders become slightly lighter dark grey */
+    --brand-offwhite: 42 33 27;      /* Cards become slightly lighter than background */
+    --brand-green: 114 135 106;      /* Adjusted for contrast */
+    --brand-terracotta: 219 135 103; /* Adjusted for contrast */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-cream text-brand-espresso font-sans antialiased transition-colors duration-500 print:bg-white print:text-black;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-brand-espresso font-medium transition-colors duration-500 print:text-black;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-espresso text-white px-6 py-3 rounded-full hover:bg-brand-espresso/90 transition-all duration-300 font-medium;
+  }
+  
+  .btn-secondary {
+    @apply border border-brand-espresso text-brand-espresso px-6 py-3 rounded-full hover:bg-brand-espresso hover:text-white transition-all duration-300 font-medium;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-soft border border-brand-beige overflow-hidden transition-all duration-300 hover:shadow-lg;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F9F6F0; 
+}
+::-webkit-scrollbar-thumb {
+  background: #d6d1c8; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c1bcaf; 
+}
